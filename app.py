@@ -25,7 +25,7 @@ st.markdown("""
     </style>
 """, unsafe_allow_html=True)
 
-st.title("APEX // Executive")
+st.title("APEX Executive")
 
 # 4-Tab Navigation
 tab1, tab2, tab3, tab4 = st.tabs(["KPI", "Wealth", "Market", "Analytics"])
