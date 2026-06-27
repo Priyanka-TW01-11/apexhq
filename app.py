@@ -1,47 +1,29 @@
-import streamlit as st
+# Function placeholders for your existing modules
+def show_kpi(): st.write("KPI Dashboard content here")
+def show_wealth(): st.write("Wealth Cockpit - Consolidated Assets: ₹642 Cr")
+def show_market(): st.write("Market Intelligence content here")
+def show_analytics(): st.write("Analytics content here")
 
-st.set_page_config(layout="centered", initial_sidebar_state="collapsed")
+def show_operations():
+    st.subheader("Operations Command Center")
+    # New daily operational features
+    task = st.radio("Select Daily Task", ["Approval Queue", "Document Vault", "Audit Logs"])
+    
+    if task == "Approval Queue":
+        st.write("Pending Transactions: 3")
+        if st.button("Approve All Pending Wires"):
+            st.success("Transactions authorized.")
+    elif task == "Document Vault":
+        st.file_uploader("Upload sensitive documents (Encrypted)")
 
-# --- PROFESSIONAL LIGHT THEME CSS ---
-st.markdown("""
-    <style>
-    /* Light professional background */
-    .stApp { background-color: #F8F9FA; color: #1E293B; }
-    
-    /* White cards for metrics */
-    .stMetric { 
-        background-color: #FFFFFF; 
-        padding: 20px; 
-        border-radius: 12px; 
-        border: 1px solid #E2E8F0;
-        box-shadow: 0 2px 4px rgba(0,0,0,0.05);
-    }
-    
-    /* Headers and font */
-    h1, h2, h3 { color: #0F172A; font-family: sans-serif; }
-    
-    /* Tab Styling */
-    div[data-baseweb="tab-list"] { background-color: #F8F9FA; }
-    </style>
-""", unsafe_allow_html=True)
-
+# Main Layout
 st.title("APEX Executive")
 
-# 4-Tab Navigation
-tab1, tab2, tab3, tab4 = st.tabs(["KPI", "Wealth", "Market", "Analytics"])
+tabs = st.tabs(["KPI", "Wealth", "Market", "Analytics", "Operations"])
 
-with tab1:
-    st.subheader("Business Health Score")
-    st.metric("Composite Health", "87/100", delta="+2 pts")
-    st.write("Real-time tracking of revenue, profit, and department health.")
+with tabs[0]: show_kpi()
+with tabs[1]: show_wealth()
+with tabs[2]: show_market()
+with tabs[3]: show_analytics()
+with tabs[4]: show_operations()
 
-with tab2:
-    st.subheader("Wealth Cockpit")
-    st.write("Consolidated Assets: ₹642 Cr")
-
-with tab3:
-    st.subheader("Market Intelligence")
-    st.write("Tracking competitor benchmarks and industry trends.")
-with tab4:
-    st.subheader("AI Insights")
-    st.warning("⚠️ Anomaly: Unit B sales velocity is 15% below target.")
