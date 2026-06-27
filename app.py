@@ -1,3 +1,5 @@
+import streamlit as st
+
 # Function placeholders for your existing modules
 def show_kpi(): st.write("KPI Dashboard content here")
 def show_wealth(): st.write("Wealth Cockpit - Consolidated Assets: ₹642 Cr")
@@ -8,7 +10,8 @@ def show_operations():
     st.subheader("Operations Command Center")
     # New daily operational features
     task = st.radio("Select Daily Task", ["Approval Queue", "Document Vault", "Audit Logs"])
-        if task == "Approval Queue":
+    
+    if task == "Approval Queue":
         st.write("Pending Transactions: 3")
         if st.button("Approve All Pending Wires"):
             st.success("Transactions authorized.")
@@ -22,4 +25,3 @@ with tabs[1]: show_wealth()
 with tabs[2]: show_market()
 with tabs[3]: show_analytics()
 with tabs[4]: show_operations()
-
