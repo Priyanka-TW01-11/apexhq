@@ -8,19 +8,15 @@ def show_operations():
     st.subheader("Operations Command Center")
     # New daily operational features
     task = st.radio("Select Daily Task", ["Approval Queue", "Document Vault", "Audit Logs"])
-    
-    if task == "Approval Queue":
+        if task == "Approval Queue":
         st.write("Pending Transactions: 3")
         if st.button("Approve All Pending Wires"):
             st.success("Transactions authorized.")
     elif task == "Document Vault":
         st.file_uploader("Upload sensitive documents (Encrypted)")
-
 # Main Layout
 st.title("APEX Executive")
-
 tabs = st.tabs(["KPI", "Wealth", "Market", "Analytics", "Operations"])
-
 with tabs[0]: show_kpi()
 with tabs[1]: show_wealth()
 with tabs[2]: show_market()
